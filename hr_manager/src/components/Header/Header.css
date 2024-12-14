@@ -1,0 +1,17 @@
+header {
+    
+    /*flex-direction: row;
+    align-items: center;
+    justify-content: center;*/
+    min-height: 150px;
+    text-align: center;
+    margin: 2rem;
+    
+}
+
+header h1 {
+    display: inline-block;
+    margin: 0rem 15rem;
+    font-size: 40px;
+}
+
