@@ -14,7 +14,7 @@ export const employeesData = [
     },
     {
         id: 2,
-        firstName: "Leo",
+        firstName: "Leon",
         lastName: "Mäkinen",
         role: "software engineer",
         currentProject: "mobile app development",
@@ -26,7 +26,7 @@ export const employeesData = [
     },
     {
         id: 3,
-        firstName: "Mia",
+        firstName: "Mira",
         lastName: "Korhonen",
         role: "product manager",
         currentProject: "brand strategy overhaul",

@@ -51,4 +51,33 @@
   .teamlead-icon {
     height: 50px;
   }
+
+  .ict {
+    content:"";
+    height: 10px;
+    display: inline-block;
+    background: red;
+  }
+
+  .finance {
+    content:"";
+    height: 10px;
+    display: inline-block;
+    background: blue;
+  }
+
+  .marketing {
+    content:"";
+    height: 10px;
+    display: inline-block;
+    background: green;
+  }
+
+  .default {
+    content:"";
+    height: 10px;
+    display: inline-block;
+    background: orange;
+  }
+ 
  

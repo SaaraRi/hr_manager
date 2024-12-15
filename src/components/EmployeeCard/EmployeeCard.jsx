@@ -29,6 +29,7 @@ const EmployeeCard = ({firstName, lastName, role, department, location, currentP
 
     return (
         <div className="card">
+            <div className={`${getDepartmentClass(person.department)}`}></div>
             <div className="card-icons">
             {promotedRole && (
             <div className="promoted">
