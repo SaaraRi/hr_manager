@@ -13,3 +13,7 @@ button {
 button:hover {
   background-color: rgb(155, 254, 208);
 }
+
+.btn-secondary {
+  background-color: coral;
+}

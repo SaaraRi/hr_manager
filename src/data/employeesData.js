@@ -19,7 +19,7 @@ export const employeesData = [
         role: "software engineer",
         currentProject: "mobile app development",
         department: "ICT",
-        startDate: "2015-03-21",
+        startDate: "2013-12-21",
         location: "Helsinki",
         education: "BSc, Aalto University",
         vacationDaysAcc: "15 days"
@@ -31,7 +31,7 @@ export const employeesData = [
         role: "product manager",
         currentProject: "brand strategy overhaul",
         department: "Marketing",
-        startDate: "2023-07-01",
+        startDate: "2024-07-01",
         location: "Espoo",
         education: "MBA, University of Tampere",
         vacationDaysAcc: "2 days"
