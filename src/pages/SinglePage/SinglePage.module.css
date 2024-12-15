@@ -1,0 +1,46 @@
+.singlePageContent {
+  background-color: var(--light-color);
+  padding: 2rem;
+  color: var(--dark-color);
+  text-align: left;
+  border-radius: 5px;
+  margin: 2rem 0;
+  max-width: 1200px;
+  min-width: 750px;
+  position: relative;
+}
+.singlePageContent .status {
+  position: absolute;
+  right: 2rem;
+  top: 1rem;
+  text-align: right;
+}
+.singlePageContent .data {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.singlePageContent span {
+  border: 1px solid var(--light-grey);
+  border-radius: 30px;
+  margin-right: 0.5rem;
+  padding: 0rem 0.5rem;
+  display: inline-block;
+  font-size: 0.8rem;
+}
+.singlePageContent .contactDetails p {
+  text-align: right;
+}
+.singlePageContent .role {
+  margin: 1rem 0;
+}
+.singlePageContent .management {
+  background-color: var(--light-grey);
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.lessImportant {
+  font-style: italic;
+  font-size: 0.8rem;
+}

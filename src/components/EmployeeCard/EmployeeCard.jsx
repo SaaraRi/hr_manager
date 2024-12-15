@@ -1,31 +1,53 @@
 import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
+import useAxiosRequest from "../../services/useAxios";
+import { useEmployeeStatus } from "../../hooks/useEmployeeStatus";
 import './EmployeeCard.css';
 import Button from '../Button/Button.jsx';
 import promotedIcon from '../../assets/icons8-star-96.png'
-import { calcYearsWorked } from "../../utilities/yearsCalc";
+
 import { getDepartmentClass } from "../../utilities/styleUtils";
 
-const EmployeeCard = ({firstName, lastName, role, department, location, currentProject, education, startDate, vacationDaysAcc}) => {
+const EmployeeCard = ({id, firstName, lastName, role, department, location, currentProject, education, startDate, vacationDaysAcc}) => {
 
     const [promotedRole, setPromotedRole] = useState(false);
     const [person, setPerson] = useState({ department, location, role });
     const [isEditing, setIsEditing] = useState(false);
+    const navigate = useNavigate();
+    const { error, update } = useAxiosRequest("http://localhost:3001/");
+    const { yearsWorked, isProbation, isAnniversary } =
+    useEmployeeStatus(startDate);
 
-    const yearsWorked = calcYearsWorked(startDate);
-    const isProbation = yearsWorked < 0.5;
-    const isAnniversary = yearsWorked > 0 && yearsWorked % 5 === 0;
-
+   
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setPerson((prevState) => ({ ...prevState, [name]: value }));
       };
 
-      const renderEditableField = (value, name) =>
-        isEditing ? (
-          <input value={value} name={name} onChange={handleInputChange} />
-        ) : (
-          <p className={name}>{value}</p>
-        );
+      const handleEdit = () => {
+        update(`persons/${id}`, person);
+      };
+
+      const renderEditableField = (value, firstName) => {
+        const capitalizeWords = (text) =>
+          text
+            .toString()
+            .replace(
+              /\w\S*/g,
+              (word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+            );
+    
+        const displayValue = value ? capitalizeWords(value) : "N/A";
+
+        return isEditing ? (
+            <input value={value || ""} name={firstName} onChange={handleInputChange} />
+          ) : (
+            <p>{displayValue}</p>
+          );
+        };
+      
+        if (error) return <p>{error}</p>;
+    
 
     return (
         <div className="card">
@@ -81,9 +103,18 @@ const EmployeeCard = ({firstName, lastName, role, department, location, currentP
             onClick={() => setPromotedRole((prev) => !prev)}
             text={promotedRole ? "Demote" : "Promote" } />
              <Button
-            onClick={() => setIsEditing((prev) => !prev)}
-            text={isEditing ? "Save" : "Edit"}
-            role="secondary"/>
+            onClick={() => navigate(`/employee/${id}`)}
+            text={"See details"}
+            role="secondary"
+            />
+            <Button
+              onClick={() => {
+                if (isEditing) handleEdit();
+                setIsEditing((prev) => !prev);
+              }}
+              text={isEditing ? "Save" : "Edit"}
+              role={isEditing ? "primary" : "secondary"}
+            />
          
         </div>
     );

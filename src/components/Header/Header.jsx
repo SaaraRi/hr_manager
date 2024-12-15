@@ -14,7 +14,7 @@ const Header = ({ isLoggedIn, loginHandler }) => {
         <nav>
           <ul>
             <li>
-              <Link to="employees">Employees</Link>
+              <Link to="/">Employees</Link>
             </li>
             <li>
               <Link to="new">Add new</Link>
